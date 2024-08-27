@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-argo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-argo
+  template:
+    metadata:
+      labels:
+        app: hello-argo
+    spec:
+      containers:
+      - name: hello-argonaut
+        image: argonaut:local
+        imagePullPolicy: Never # This ensures Kubernetes uses the local image
+        ports:
+        - containerPort: 3000
+        env:
+        - name: APP_VERSION
+          value: "3.2"
+        - name: PORT
+          value: "3000"
