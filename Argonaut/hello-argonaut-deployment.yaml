@@ -20,6 +20,6 @@ spec:
         - containerPort: 3000
         env:
         - name: APP_VERSION
-          value: "3.3"
+          value: "3.4"
         - name: PORT
           value: "3000"
